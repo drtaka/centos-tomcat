@@ -2,6 +2,11 @@
 FROM centos:centos7
 MAINTAINER kirillf
 
+######## Japanse support
+# change time zone
+RUN mv /etc/localtime /etc/localtime.org
+RUN ln -s /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+
 # Install prepare infrastructure
 RUN yum -y update && \
  yum -y install wget && \
